@@ -1,0 +1,35 @@
+{
+  "Lodi": {
+    "1789": {
+      "Hand-sanitizer": {
+        "items": [
+          {
+            "status": "In Stock", 
+            "price": 7, 
+            "name": "Equate Moisturizing Hand Sanitizer, 60 fl oz", 
+            "upc": "681131247641"
+          }, 
+          {
+            "status": "In Stock", 
+            "price": 5, 
+            "name": "Equate Moisturizing Hand Sanitizer with Vitamin E, 34 fl oz - May Ship with a Flip Top Cap", 
+            "upc": "681131247665"
+          }, 
+          {
+            "status": "In Stock", 
+            "price": 7, 
+            "name": "Equate Hand Sanitizer with Vitamin E, 60 fl oz", 
+            "upc": "681131176286"
+          }
+        ], 
+        "summaryTotal": {
+          "quantityRank": 10.0
+        }, 
+        "storeId": "1789", 
+        "type": "walmart", 
+        "address": "1601 S Lower Sacramento Rd"
+      }, 
+      "address": "1601 S Lower Sacramento Rd"
+    }
+  }
+}

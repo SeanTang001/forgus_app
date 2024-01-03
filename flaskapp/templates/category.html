@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Inventory Tracker</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="http://pablogarciafernandez.com" />
+    <meta name="description" content="Table Responsive" />
+    <meta name="keywords" content="table, responsive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="/static/table-responsive.css" media="screen" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="topnav">
+	<a href="/">Home</a>
+	<!-- <a href="/trends">Historical Trends</a> -->
+    <a href="/downloads">Download Data</a>
+	<!-- <a href="#about">About</a> -->
+	</div> 
+	
+
+<h1><span class="blue"></span>Inventory<span class="blue"></span> <span class="yellow">Tracker</pan></h1>
+<!-- <h2>Created with love by <a href="http://pablogarciafernandez.com" target="_blank">Pablo García Fernández</a></h2> -->
+
+<img src="{{ data.img_path }}" class="graph">
+
+<table class="container">
+	<thead>
+		<tr>
+            <th><h1>Item Type</h1></th>
+            <th><h1>Item Name</h1></th>
+			<th><h1>Status</h1></th>
+			<th><h1>Price</h1></th>
+		</tr>
+	</thead>
+    <tbody id ="chart">
+        <!-- <tr>
+			<td>Google</td>
+			<td>9518</td>
+			<td>6369</td>
+			<td>01:32:50</td>
+		</tr> -->
+
+	</tbody>
+</table>
+
+<script>
+    var category = '{{ data.category }}';
+    var address = '{{ data.address }}';
+
+    function Get(yourUrl){
+        var Httpreq = new XMLHttpRequest(); // a new request
+        Httpreq.open("GET",yourUrl,false);
+        Httpreq.send(null);	
+        return Httpreq.responseText;          
+    }
+
+    var store = JSON.parse(Get("http://127.0.0.1:8000/b/"+category+"/"+address));
+    console.log(store);
+    console.log(store.data[0]);
+    console.log(Object.keys(store.data[0])[0]);
+    var k = Object((Object.keys(store.data[0])[0]));
+    console.log(store.data[0][k]);
+    for(i=0;i<Object.keys(store.data[0]).length;i++){
+        var k = Object.keys(store.data[0]);
+        for(x=0;x<Object.keys(store.data[0][k[i]].items).length;x++){
+            var a = "<tr><td>"+Object.keys(store.data[0])[i]+"</td><td>"+store.data[0][k[i]].items[x].name+"</td><td>"+store.data[0][k[i]].items[x].status+"</td><td>"+store.data[0][k[i]].items[x].price+"</td></tr>";
+            document.getElementById('chart').innerHTML += a;
+        }
+    }
+    // <th><h1>Item Type</h1></th>
+    // <th><h1>Item Name</h1></th>
+    // <th><h1>Status</h1></th>
+    // <th><h1>Price</h1></th>
+</script>
+
+</body>
+</html>

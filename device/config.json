@@ -1,0 +1,8 @@
+{
+    "comm":"phone",
+    "server":"http://127.0.0.1:8000/",
+    "phone":"19253991595",
+    "location":"my_home",
+    "coord":[37.673432,-121.907774],
+    "password":"password"
+}
